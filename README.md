@@ -3,7 +3,7 @@
 [ljspeech1.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/datasets/ljspeech1.py) 받은 데이터 셋의 입출력에 맞도록 경로 등의 부분을 변형<br>
 [analyze.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze.py)새로운 시도를 위한 수정.<br>
 [analyze1.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze1.py) 6번째 그래프를 그린 파일.<br>
-[analuze2.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze2.py) 마지막 그래프를 위한 수정.<br>
+[analuze2.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze2.py) 마지막 그래프를 그린 파일.<br>
 
 
 ## 1.
