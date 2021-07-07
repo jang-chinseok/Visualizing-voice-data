@@ -29,4 +29,5 @@
 초성과 종성의 구분 없이 사용된 자모의 분포를 나타내도록 작성되어진 그래프.
 ## 7
 ![avgsecvslen](visualizing/Figure_6-Symbols.png)
-초성과 종성의 구분을 한 후에, 해당 발음을 발음기호와 매칭시켜 작성되어진 그래프.
+초성과 종성의 구분을 한 후에, 해당 음소를 발음기호와 매칭시켜 작성되어진 그래프.
+symbol table은 [KoG2P](https://github.com/scarletcho/KoG2P) 를 참고하였음.
