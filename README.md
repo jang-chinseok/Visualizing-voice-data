@@ -1,7 +1,7 @@
 # modifyed cods
-[ljspeech.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/datasets/ljspeech.py) 텍스트 데이터셋에서 자모분해 된 데이터를 텍스트로 넣도록 변형(txt로 주어진 데이터의 인덱스 기준 3번.)<br>
-[ljspeech1.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/datasets/ljspeech1.py) 받은 데이터 셋의 입출력에 맞도록 경로 등의 부분을 변형<br>
-[analyze.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze.py)새로운 시도를 위한 수정.<br>
+[ljspeech.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/datasets/ljspeech.py) 텍스트 데이터셋에서 자모분해 된 데이터를 텍스트로 넣도록 변형한 파일 (txt로 주어진 데이터의 인덱스 기준 3번.)<br>
+[ljspeech1.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/datasets/ljspeech1.py) 받은 데이터 셋의 입출력에 맞도록 경로 등의 부분을 변형된 기본 사용 파일 <br>
+[analyze.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze.py)새로운 시도를 위한 수정.()<br>
 [analyze1.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze1.py) 6번째 그래프를 그린 파일.<br>
 [analuze2.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze2.py) 마지막 그래프를 그린 파일.<br>
 꼭 필요한 변경사항에 대해서 preprocess보다 ljspeech에 들어있는 내용이 직관적이었고 중요했기에 이에 대해서만 수정을 가함.
