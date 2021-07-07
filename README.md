@@ -30,4 +30,13 @@
 ## 7
 ![avgsecvslen](visualizing/Figure_6-Symbols.png)
 초성과 종성의 구분을 한 후에, 해당 음소를 발음기호와 매칭시켜 작성되어진 그래프.
-symbol table은 [KoG2P](https://github.com/scarletcho/KoG2P) 를 참고하였음.
+symbol table은 [KoG2P](https://github.com/scarletcho/KoG2P) 를 참고하였음.<ar>
+
+
+library i used or tested
+  <br>[jamo](https://github.com/JDongian/python-jamo)
+  <br>[korean_romanizer](https://github.com/osori/korean-romanizer)
+  <br>[matplotlib.font_manager]
+  <br>["github.com/hangulize/hangulize"](https://github.com/hangulize/hangulize)
+  <br>[g2pK: g2p module for Korean](https://github.com/Kyubyong/g2pK)
+  
