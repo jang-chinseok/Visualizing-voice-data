@@ -4,8 +4,8 @@
 [analyze.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze.py)새로운 시도를 위한 수정.<br>
 [analyze1.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze1.py) 6번째 그래프를 그린 파일.<br>
 [analuze2.py](https://github.com/jang-chinseok/Visualizing-voice-data/blob/main/analyze2.py) 마지막 그래프를 그린 파일.<br>
-
-
+꼭 필요한 변경사항에 대해서 preprocess보다 ljspeech에 들어있는 내용이 직관적이었고 중요했기에 이에 대해서만 수정을 가함.
+이 외의 수정은 파일을 읽어들이는 encoding 에 대해서 일괄적으로 utp-8 을 적용한 정도.
 ## 1.
 ![avgsecvslen](visualizing/Figure_1.png)
 
