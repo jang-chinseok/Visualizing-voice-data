@@ -20,9 +20,13 @@
 ## 4
 
 ![avgsecvslen](visualizing/Figure_4.png)
+
 ## 5
 ![avgsecvslen](visualizing/Figure_5.png)
+
 ## 6
 ![avgsecvslen](visualizing/Figure_6.png)
+초성과 종성의 구분 없이 사용된 자모의 분포를 나타내도록 작성되어진 그래프.
 ## 7
-![avgsecvslen](visualizing/Figure_1-Symbols.png)
+![avgsecvslen](visualizing/Figure_6-Symbols.png)
+초성과 종성의 구분을 한 후에, 해당 발음을 발음기호와 매칭시켜 작성되어진 그래프.
