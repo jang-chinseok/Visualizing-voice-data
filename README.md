@@ -35,7 +35,7 @@ this repository is fork of [mimic2](https://github.com/MycroftAI/mimic2)
 symbol table은 [KoG2P](https://github.com/scarletcho/KoG2P) 를 참고하였음.<ar>
 
 
-library i used or tested
+#### library i used or tested
   <br>[jamo](https://github.com/JDongian/python-jamo)
   <br>[korean_romanizer](https://github.com/osori/korean-romanizer)
   <br>[matplotlib.font_manager]
