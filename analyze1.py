@@ -170,24 +170,24 @@ def plot_phonemes(train_path, cmu_dict_path, save_path):
 
     phonemes = {}
 
-    with open(train_path, 'r', encoding='utf-8') as f:
+    with open(train_path, 'r', encoding='utf-8') as f:      #파일 형식이 utf-8이기 때문에, encoding='utf-8'을 해주지 않으면 제대로 읽지 못함.
         data = csv.reader(f, delimiter='|')
         phonemes["None"] = 0
         for row in data:
             words = row[3].split()
             print('words : ',words)
             for word in words:
-                '''parse = G2p(word)'''               
-                pho = j2hcj(h2j(word))
+                '''parse = G2p(word)'''     #g2p가 되는 경우 사용되려 했던 기능.          
+                pho = j2hcj(h2j(word))      #자모 라이브러리를 통해 pho에 word에 받아진 단어를 한글자씩 나눈 후에 저장.
 
-                print('pho : ', pho)
+                
                 if pho:
-                    indie = list(pho)
-                    print('indie :', indie)
-                    for nemes in indie:
+                    indie = list(pho)       #pho가 존재할 경우에, inde에 리스트 형직으로 저장.
+                   
+                    for nemes in indie:         #자모들을 딕셔너리에 저장.
                         if phonemes.get(nemes):
                             phonemes[nemes] += 1
-                            print('nemes : ',nemes)
+                            
                         else:
                             phonemes[nemes] = 1
                 else:
@@ -195,7 +195,7 @@ def plot_phonemes(train_path, cmu_dict_path, save_path):
 
     x, y = [], []
     for key in phonemes:
-        if key != '.'and key != '?' and key != '!' and key != ',':
+        if key != '.'and key != '?' and key != '!' and key != ',':          #특수기호들을 제거
             x.append(key)
             y.append(phonemes[key])
     
