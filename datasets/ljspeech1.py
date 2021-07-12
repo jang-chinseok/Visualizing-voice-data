@@ -27,11 +27,10 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
     for line in f:
       parts = line.strip().split('|')
       wav_path_parts=parts[0]
-      wav_path = os.path.join(in_dir, 'wavs',wav_path_parts[0], wav_path_parts[2:])
-      ''''%s.wav' % '''
-      text = parts[2]
-      
-      '''print(wav_path, text)'''
+      wav_path = os.path.join(in_dir, 'wavs',wav_path_parts[0], wav_path_parts[2:])   #db역할을 하는 파일에서 인덱스의 0번이 하위파일이름, 2번 이후가 파일의 이름이기에 
+                                                                                      #그에 맞추어 바꾼 코드.
+      text = parts[2]     #문장을 저장.
+   
       futures.append(executor.submit(partial(_process_utterance, out_dir, index, wav_path, text)))
       index += 1
   return [future.result() for future in tqdm(futures)]
