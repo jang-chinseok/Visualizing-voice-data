@@ -16,7 +16,7 @@ from text import cleaners
 from korean_romanizer.romanizer import Romanizer
 import matplotlib.font_manager as fm
 import "github.com/hangulize/hangulize"  #한글라이즈 를 사용해 보고 싶었으나 적용하지 못함.
-'''from g2pk import G2p'''
+'''from g2pk import G2p'''              #g2pk를 사용하고싶었지만, install과정에서 pip가 계속 고장나는 문제가 발생하여 포기.
 
 
 fl = fm.FontProperties(fname="C:\WINDOWS\Fonts\malgun.ttf").get_name()  #한글자모의 경우, 폰트 그기가 맞지 않아 matplotlib에 정상표기되지 않는문제가 있는데, 
