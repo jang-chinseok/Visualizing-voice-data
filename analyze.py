@@ -15,12 +15,12 @@ from jamo import h2j, j2hcj
 from text import cleaners
 from korean_romanizer.romanizer import Romanizer
 import matplotlib.font_manager as fm
-import "github.com/hangulize/hangulize"
+import "github.com/hangulize/hangulize"  #한글라이즈 를 사용해 보고 싶었으나 적용하지 못함.
 '''from g2pk import G2p'''
 
 
-fl = fm.FontProperties(fname="C:\WINDOWS\Fonts\malgun.ttf").get_name()
-plt.rc('font',family=fl)
+fl = fm.FontProperties(fname="C:\WINDOWS\Fonts\malgun.ttf").get_name()  #한글자모의 경우, 폰트 그기가 맞지 않아 matplotlib에 정상표기되지 않는문제가 있는데, 
+plt.rc('font',family=fl)                                                #이를 해결하기 위해 그 크기를 맞도록 보정해 주는 코드.
 def get_audio_seconds(frames):
     return (frames*12.5)/1000
 
@@ -56,7 +56,7 @@ def process_meta_data(path):
     meta_data = {}
 
     # load meta data
-    with open(path, 'r',encoding='utf-8') as f:
+    with open(path, 'r',encoding='utf-8') as f:     
         data = csv.reader(f, delimiter='|')
         for row in data:
             frames = int(row[2])
@@ -164,9 +164,10 @@ def plot(meta_data, save_path=None):
     if save:
         name = "char_len_vs_num_samples"
         plt.savefig(os.path.join(save_path, name))
-def convert_phonemes_Symbols(word):
-    if word == 'ㅂ':
-        return 'p0'
+        
+def convert_phonemes_Symbols(word):             #초성과 중성을 분류해 주기 위해서 만들어 준 함수-초성과 종성이 가지는 발음과 매칭시켜줌.
+    if word == 'ㅂ':                             #자모 라이브러리를 사용할 경우, 초 중 종으로 나누어지게 되는데, 이어지는 코드에서 이를 리스트로 저장함.
+        return 'p0'                             #이 코드는 거기에서 인덱스 기준으로 0,1에 한해서 적용하기 위한 함수임.
     elif word == 'ㅍ':
         return 'ph'
     elif word == 'ㅃ':
@@ -245,9 +246,10 @@ def convert_phonemes_Symbols(word):
         return 'wv'
     elif word == 'ㅢ':
         return 'xi'    
-def convert_phonemes_Symbols_coda(word):
-        #이 아래로는 종성발음
-    if word == 'ㅂ':  
+    
+def convert_phonemes_Symbols_coda(word):        #위 함수에서 초성과 종성을 구별했기 때문에, 마지막 리스트 인덱스 2번은 종성이 됨, 이는 존재 할 시에만 적용.
+        #이 아래로는 종성발음                    #종성의 발음을 
+    if word == 'ㅂ':     
         return 'pf'
     elif word == 'ㅍ':
         return 'ph'
@@ -311,25 +313,25 @@ def plot_phonemes(train_path, cmu_dict_path, save_path):
         data = csv.reader(f, delimiter='|')
         phonemes["None"] = 0
         for row in data:
-            words = row[3].split()
-            print('words : ',words)
-            for word in words:
-                '''parse = G2p(word)'''   
-                word=list(word)
+            words = row[3].split()  #데이터에서 3번째 인덱스가 문장이기 때문에, 이 데이터를 추출.
+            
+            for word in words:              #추출한 문자 데이터를. 공백을 기준으로 나누어 단어별로 분류 한 후 그 단어마다 작업을 진행.
+                '''parse = G2p(word)'''     #G2p가 정상적으로 import 및 install되었을 경우 단어를 실제 발음으로 변화시기지 위한 코드.
+                word=list(word)             #단어를 한개씩 작업하기 위해 리스트화 시키는 코드.
+                
                 for i in word :
-                    pho = j2hcj(h2j(i))
-    
-                    print('pho : ', pho)
+                    pho = j2hcj(h2j(i))     #한글자씩 자모를 통해 초 중 종성으로 분해 한 후에 저장.
+                    
                     if pho:
-                        indie = list(pho)
-                        print('indie :', indie)
-                        if  indie[0]!= '.'and indie[0] != '?' and indie[0] != '!' and indie[0] != ',':
-                            indie[0]=convert_phonemes_Symbols(indie[0])
+                        indie = list(pho)           
+
+                        if  indie[0]!= '.'and indie[0] != '?' and indie[0] != '!' and indie[0] != ',':  #문장기호 제외.
+                            indie[0]=convert_phonemes_Symbols(indie[0])                                 #위에서 쓴 초성과 중성에 대한 매칭을 위한 함수 호출.
                             indie[1]=convert_phonemes_Symbols(indie[1])
                             if len(indie)==3:
-                                indie[2]=convert_phonemes_Symbols_coda(indie[2])
+                                indie[2]=convert_phonemes_Symbols_coda(indie[2])                        #리스트의 길이가 3이라는 것은 종성이 존재. 이 경우에만 종성발음 변환.
                         for nemes in indie:
-                            if phonemes.get(nemes):
+                            if phonemes.get(nemes):                                                     #변환된 발음들을 딕셔너리에 저장.
                                 phonemes[nemes] += 1
                                 print('nemes : ',nemes)
                             else:
