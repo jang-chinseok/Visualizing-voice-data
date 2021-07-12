@@ -23,14 +23,13 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
   executor = ProcessPoolExecutor(max_workers=num_workers)
   futures = []
   index = 1
-  with open(os.path.join(in_dir, 'transcript.v.1.4.txt'), encoding='utf-8') as f:
+  with open(os.path.join(in_dir, 'transcript.v.1.4.txt'), encoding='utf-8') as f:   #사용할 파일의 이름과 인코딩형식을 지정.
     for line in f:
       parts = line.strip().split('|')
       wav_path_parts=parts[0]
-      wav_path = os.path.join(in_dir, 'wavs',wav_path_parts[0], wav_path_parts[2:])
-      text = parts[3]
+      wav_path = os.path.join(in_dir, 'wavs',wav_path_parts[0], wav_path_parts[2:]) #사용한 데이터 셋이, wavs의 하위에 네개의 디렉토리에 나누어 들어가 있고, 이에 대한 db역할을 하는 파일의
+      text = parts[3]                                                               # 0번이 이 하위디렉토리를 , 2번 이후가 파일 이름을 나타냈기 때문에 나누어 패스로 합치는 코드.
       
-      '''print(wav_path, text)'''
       futures.append(executor.submit(partial(_process_utterance, out_dir, index, wav_path, text)))
       index += 1
   return [future.result() for future in tqdm(futures)]
